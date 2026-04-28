@@ -1,4 +1,4 @@
-name: nuget
+name: Create sponsor JSONs 
 on:
   workflow_dispatch:
     inputs:
@@ -9,11 +9,7 @@ on:
         default: 360
 
   schedule:
-    - cron: "0 2 1 * *"
-
-permissions:
-  contents: write
-  pull-requests: write
+    - cron: "0 2 * * *"
 
 jobs:
   nuget:
@@ -27,9 +23,8 @@ jobs:
         run: dotnet tool update -g dotnet-sponsor
 
       - name: Generate sponsor jsons
-        run: sponsor nuget --tos --gh-only false --oss-only true --owner "${{ github.repository_owner }}"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: pwsh
+        run: sponsor nuget --tos --exceptionss --gh-only false --oss-only true --owner "${{ github.repository_owner }}"
           
       - name: Create or update pull request
         uses: peter-evans/create-pull-request@v8.1.1
