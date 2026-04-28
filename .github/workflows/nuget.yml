@@ -29,7 +29,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           dotnet tool update -g dotnet-sponsor
-          $env:GH_TOKEN | sponsor nuget --tos --exceptions --force --with-token
+          $env:GH_TOKEN | sponsor nuget --tos --gh-only false --oss-only true --owner "${{ github.repository_owner }}" --exceptions --force --with-token
 
       - name: Create or update pull request
         uses: peter-evans/create-pull-request@v8.1.1
