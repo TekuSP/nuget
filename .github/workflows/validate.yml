@@ -25,4 +25,4 @@ jobs:
 
       - name: Validate YAML files
         run: |
-          ruby -e 'require "yaml"; Dir[".github/**/*.yml", ".github/**/*.yaml", ".mergify.yml"].uniq.each { |f| YAML.load_file(f) }'
+          ruby -e 'require "yaml"; Dir[".github/**/*.yml", ".github/**/*.yaml", ".mergify.yml"].uniq.each { |f| YAML.safe_load_file(f, permitted_classes: [], permitted_symbols: [], aliases: true) }'
