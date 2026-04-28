@@ -43,4 +43,5 @@ jobs:
           commit-message: Update generated NuGet data
           title: Update generated NuGet data
           body: Automated refresh of generated NuGet data.
-          add-paths: *.json
+          add-paths: |
+            *.json
