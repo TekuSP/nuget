@@ -1,20 +1,72 @@
 pull_request_rules:
-  - name: approve generated data updates
+  - name: Approve generated data updates
     conditions:
       - head=automation/nuget-update
-      - author=dependabot[bot]
+      - author=github-actions[bot]
     actions:
       review:
         type: APPROVE
         message: Automatically approving generated data update.
 
-  - name: merge dependabot updates
+  - name: Automatic generated data updates
+    conditions:
+      - author=github-actions[bot]
+      - head=automation/nuget-update
+      - "#commits-behind > 0"
+    actions:
+       update:
+
+  - name: Automatically generated data updates
+    conditions:
+      - author=github-actions[bot]
+      - "#commits-behind = 0"
+      - head=automation/nuget-update
+    actions:
+      merge:
+        method: merge
+        commit_message_template: |
+          Automerge from {{ head }}
+
+          {{ title }} (#{{ number }})
+
+          {{ body }}
+      label:
+        toggle:
+          - cleanup
+          - automated
+
+  - name: Automatically Dependenabot bot's PRs
     conditions:
       - author=dependabot[bot]
-      - check-success=validate
+      - "#commits-behind = 0"
+    actions:
+      merge:
+        method: merge
+        commit_message_template: |
+          Automerge from {{ head }}
+
+          {{ title }} (#{{ number }})
+
+          {{ body }}
+      label:
+        toggle:
+          - cleanup
+          - automated
+
+  - name: Automatically approve Dependenabot bot's PRs
+    conditions:
+      - author=dependabot[bot]
+      - "#commits-behind = 0"
     actions:
       review:
         type: APPROVE
-        message: Automatically approving Dependabot update.
-      merge:
-        method: squash
+      label:
+        toggle:
+          - approved
+
+  - name: Automatic update Depenedabot pull requests if they are commits behind
+    conditions:
+      - author=dependabot[bot]
+      - "#commits-behind > 0"
+    actions:
+       update:
