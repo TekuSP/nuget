@@ -78,7 +78,7 @@ jobs:
         if: steps.changes.outputs.has_changes == 'true'
         shell: bash
         run: |
-          base_branch="${{ github.event.repository.default_branch }}"
+          base_branch="${{ github.event.repository.default_branch || github.ref_name }}"
           pr_number="$(gh pr list --head "$UPDATE_BRANCH" --base "$base_branch" --state open --json number --jq '.[0].number // empty')"
 
           if [ -n "$pr_number" ]; then
