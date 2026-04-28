@@ -21,25 +21,22 @@ on:
   schedule:
     - cron: "0 2 1 * *"
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   nuget:
     runs-on: ubuntu-latest
     timeout-minutes: ${{ fromJSON(github.event.inputs.timeout || '30') }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      UPDATE_BRANCH: automation/nuget-update
     steps:
-      - name: 🤖 defaults
-        uses: devlooped/actions-bot@v1
-        with:
-          name: ${{ secrets.BOT_NAME }}
-          email: ${{ secrets.BOT_EMAIL }}
-          gh_token: ${{ secrets.GH_TOKEN }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: 🤘 checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          token: ${{ env.GH_TOKEN }}
-          
-      - name: ⚙ sponsors
+
+      - name: Generate sponsor data
         shell: pwsh
         continue-on-error: true
         run: |
@@ -56,9 +53,42 @@ jobs:
             sponsor nuget --tos --exceptions --force
           }
 
-      - name: ⬆️ commit
+      - name: Detect generated changes
+        id: changes
+        shell: bash
         run: |
           git add *.json
-          git commit -m "🖉 Update OSS contributors stats"
-          git pull
-          git push
+          if git diff --cached --quiet; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push update branch
+        if: steps.changes.outputs.has_changes == 'true'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$UPDATE_BRANCH"
+          git commit -m "Update OSS contributors stats"
+          git push --force --set-upstream origin "$UPDATE_BRANCH"
+
+      - name: Create or update pull request
+        if: steps.changes.outputs.has_changes == 'true'
+        shell: bash
+        run: |
+          base_branch="${{ github.event.repository.default_branch }}"
+          pr_number="$(gh pr list --head "$UPDATE_BRANCH" --base "$base_branch" --state open --json number --jq '.[0].number // empty')"
+
+          if [ -n "$pr_number" ]; then
+            gh pr edit "$pr_number" \
+              --title "Update OSS contributors stats" \
+              --body "Automated update of generated NuGet sponsor statistics."
+          else
+            gh pr create \
+              --base "$base_branch" \
+              --head "$UPDATE_BRANCH" \
+              --title "Update OSS contributors stats" \
+              --body "Automated update of generated NuGet sponsor statistics."
+          fi
