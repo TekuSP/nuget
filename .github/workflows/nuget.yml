@@ -10,7 +10,9 @@ on:
 
   schedule:
     - cron: "0 2 * * *"
-
+env:
+  GH_TOKEN: ${{ secrets.GH_PAT }}
+  
 jobs:
   nuget:
     runs-on: ubuntu-latest
@@ -20,8 +22,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         
-      - uses: actions4gh/setup-gh@v1
-
       - name: Install dotnet-sponsor tool
         run: dotnet tool update -g dotnet-sponsor
 
