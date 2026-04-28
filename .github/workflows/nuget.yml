@@ -24,7 +24,7 @@ jobs:
 
       - name: Generate sponsor jsons
         shell: pwsh
-        run: sponsor nuget --tos --exceptionss --gh-only false --oss-only true --owner "${{ github.repository_owner }}"
+        run: sponsor nuget --tos --exceptions --gh-only false --oss-only true --owner "${{ github.repository_owner }}"
           
       - name: Create or update pull request
         uses: peter-evans/create-pull-request@v8.1.1
