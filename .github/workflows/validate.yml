@@ -1,0 +1,28 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate JSON files
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          for file in *.json; do
+            python -m json.tool "$file" > /dev/null
+          done
+
+      - name: Validate YAML files
+        run: |
+          ruby -e 'require "yaml"; %w[.github/workflows/nuget.yml .github/workflows/validate.yml .github/dependabot.yml .mergify.yml].each { |f| YAML.load_file(f) }'

@@ -1,17 +1,16 @@
 pull_request_rules:
-  - name: merge generated data updates
+  - name: approve generated data updates
     conditions:
       - head=automation/nuget-update
     actions:
       review:
         type: APPROVE
         message: Automatically approving generated data update.
-      merge:
-        method: squash
 
   - name: merge dependabot updates
     conditions:
       - author=dependabot[bot]
+      - check-success=validate
     actions:
       review:
         type: APPROVE
