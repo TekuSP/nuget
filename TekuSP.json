@@ -1,0 +1,65 @@
+{
+  "authors": {
+    "TekuSP": [
+      "TekuSP/Nanoframework-Drivers",
+      "TekuSP/framework-dotnet"
+    ],
+    "nfbot": [
+      "TekuSP/Nanoframework-Drivers"
+    ]
+  },
+  "repositories": {
+    "TekuSP/Nanoframework-Drivers": [
+      "TekuSP",
+      "nfbot"
+    ],
+    "TekuSP/framework-dotnet": [
+      "TekuSP"
+    ]
+  },
+  "packages": {
+    "TekuSP/Nanoframework-Drivers": {
+      "TekuSP.Drivers.ADS1015": 2,
+      "TekuSP.Drivers.CST816D": 5,
+      "TekuSP.Drivers.DriverBase": 13,
+      "TekuSP.Drivers.DriverBase.Interfaces.Altitude": 3,
+      "TekuSP.Drivers.DriverBase.Interfaces.CO2": 5,
+      "TekuSP.Drivers.DriverBase.Interfaces.DewPoint": 5,
+      "TekuSP.Drivers.DriverBase.Interfaces.Gpio": 5,
+      "TekuSP.Drivers.DriverBase.Interfaces.Humidity": 8,
+      "TekuSP.Drivers.DriverBase.Interfaces.Infrared": 3,
+      "TekuSP.Drivers.DriverBase.Interfaces.Light": 5,
+      "TekuSP.Drivers.DriverBase.Interfaces.Pressure": 6,
+      "TekuSP.Drivers.DriverBase.Interfaces.Sensitivity": 5,
+      "TekuSP.Drivers.DriverBase.Interfaces.Temperature": 11,
+      "TekuSP.Drivers.DriverBaseI2C": 10,
+      "TekuSP.Drivers.DriverBaseSPI": 3,
+      "TekuSP.Drivers.DriverBaseUART": 3,
+      "TekuSP.Drivers.HDC1080": 2,
+      "TekuSP.Drivers.ICM20948": 2,
+      "TekuSP.Drivers.LPS22HB": 2,
+      "TekuSP.Drivers.MHZ19B": 2,
+      "TekuSP.Drivers.PI4IOE5V6408": 2,
+      "TekuSP.Drivers.QMP6988": 4,
+      "TekuSP.Drivers.SHT3x": 2,
+      "TekuSP.Drivers.SHTC3": 2,
+      "TekuSP.Drivers.SSD1331": 2,
+      "TekuSP.Drivers.TCS34725": 2
+    },
+    "TekuSP/framework-dotnet": {
+      "FrameworkDotnet": 40
+    }
+  },
+  "summary": {
+    "authors": "2",
+    "repositories": "2",
+    "packages": "27",
+    "downloads": "154"
+  },
+  "totals": {
+    "authors": 2,
+    "repositories": 2,
+    "packages": 27,
+    "downloads": 154
+  }
+}
