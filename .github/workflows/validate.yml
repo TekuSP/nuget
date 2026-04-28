@@ -28,7 +28,7 @@ jobs:
           ruby <<'RUBY'
           require "yaml"
 
-          Dir[".github/**/*.yml", ".github/**/*.yaml", ".mergify.yml"].uniq.each do |file|
+          Dir[".github/**/*.yml", ".github/**/*.yaml"].uniq.each do |file|
             YAML.safe_load_file(file, permitted_classes: [], permitted_symbols: [], aliases: true)
           end
           RUBY

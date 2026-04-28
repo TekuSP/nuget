@@ -19,9 +19,6 @@ jobs:
   nuget:
     runs-on: ubuntu-latest
     timeout-minutes: ${{ fromJSON(github.event.inputs.timeout || '360') }}
-    env:
-      GH_TOKEN: ${{ github.token }}
-      UPDATE_BRANCH: automation/nuget-update
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -32,44 +29,14 @@ jobs:
           dotnet tool update -g dotnet-sponsor
           sponsor nuget --tos --exceptions --force
 
-      - name: Detect generated changes
-        id: changes
-        shell: bash
-        run: |
-          git add --all -- '*.json'
-          if git diff --cached --quiet; then
-            echo "has_changes=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "has_changes=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Commit and push update branch
-        if: steps.changes.outputs.has_changes == 'true'
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -C "$UPDATE_BRANCH"
-          git commit -m "Update generated NuGet data"
-          git push --force --set-upstream origin "$UPDATE_BRANCH"
-
       - name: Create or update pull request
-        if: steps.changes.outputs.has_changes == 'true'
-        shell: bash
-        run: |
-          set -euo pipefail
-          base_branch="$(gh api "repos/${{ github.repository }}" --jq .default_branch)"
-          pr_number="$(gh pr list --head "$UPDATE_BRANCH" --base "$base_branch" --state open --json number --jq '.[0].number // empty')"
-
-          if [ -n "$pr_number" ]; then
-            gh pr edit "$pr_number" \
-              --title "Update generated NuGet data" \
-              --body "Automated refresh of generated NuGet data."
-          else
-            gh pr create \
-              --base "$base_branch" \
-              --head "$UPDATE_BRANCH" \
-              --title "Update generated NuGet data" \
-              --body "Automated refresh of generated NuGet data."
-          fi
+        uses: peter-evans/create-pull-request@v8.1.1
+        with:
+          token: ${{ github.token }}
+          branch: automation/nuget-update
+          delete-branch: true
+          commit-message: Update generated NuGet data
+          title: Update generated NuGet data
+          body: Automated refresh of generated NuGet data.
+          add-paths: |
+            *.json
