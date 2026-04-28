@@ -21,7 +21,7 @@ jobs:
     timeout-minutes: ${{ fromJSON(github.event.inputs.timeout || '360') }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Generate nuget data
         shell: pwsh
