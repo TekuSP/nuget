@@ -1,4 +1,4 @@
-name: validate
+name: Validate all JSON and YAML files
 
 on:
   pull_request:
