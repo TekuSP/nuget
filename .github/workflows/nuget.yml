@@ -19,15 +19,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        
+      - uses: actions4gh/setup-gh@v1
 
       - name: Install dotnet-sponsor tool
         run: dotnet tool update -g dotnet-sponsor
 
       - name: Generate sponsor jsons
         shell: pwsh
-        run: sponsor nuget --tos --exceptions --gh-only false --oss-only true --owner "${{ github.repository_owner }}"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+        run: sponsor nuget --tos --exceptions --gh-only false --oss-only true --owner "${{ github.repository_owner }}" 
           
       - name: Create or update pull request
         uses: peter-evans/create-pull-request@v8.1.1
