@@ -25,6 +25,8 @@ jobs:
 
       - name: Generate nuget data
         shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           dotnet tool update -g dotnet-sponsor
           sponsor nuget --tos --exceptions --force
