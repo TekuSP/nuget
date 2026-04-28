@@ -2,6 +2,7 @@ pull_request_rules:
   - name: approve generated data updates
     conditions:
       - head=automation/nuget-update
+      - author=dependabot[bot]
     actions:
       review:
         type: APPROVE
