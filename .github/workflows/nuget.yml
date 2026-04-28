@@ -68,6 +68,7 @@ jobs:
         if: steps.changes.outputs.has_changes == 'true'
         shell: bash
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -C "$UPDATE_BRANCH"
@@ -78,7 +79,8 @@ jobs:
         if: steps.changes.outputs.has_changes == 'true'
         shell: bash
         run: |
-          base_branch="${{ github.event.repository.default_branch || github.ref_name }}"
+          set -euo pipefail
+          base_branch="$(gh api "repos/${{ github.repository }}" --jq .default_branch)"
           pr_number="$(gh pr list --head "$UPDATE_BRANCH" --base "$base_branch" --state open --json number --jq '.[0].number // empty')"
 
           if [ -n "$pr_number" ]; then
