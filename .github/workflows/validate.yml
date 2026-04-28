@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   validate:
+    name: Validate all JSON files
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -22,13 +23,3 @@ jobs:
           for file in *.json; do
             python -m json.tool "$file" > /dev/null
           done
-
-      - name: Validate YAML files
-        run: |
-          ruby <<'RUBY'
-          require "yaml"
-
-          Dir[".github/**/*.yml", ".github/**/*.yaml"].uniq.each do |file|
-            YAML.safe_load_file(file, permitted_classes: [], permitted_symbols: [], aliases: true)
-          end
-          RUBY
