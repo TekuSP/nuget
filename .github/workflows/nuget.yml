@@ -15,6 +15,7 @@ jobs:
   nuget:
     runs-on: ubuntu-latest
     timeout-minutes: ${{ fromJSON(github.event.inputs.timeout || '360') }}
+    name: Create sponsor JSONs
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -26,7 +27,7 @@ jobs:
         shell: pwsh
         run: sponsor nuget --tos --exceptions --gh-only false --oss-only true --owner "${{ github.repository_owner }}"
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}  
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
           
       - name: Create or update pull request
         uses: peter-evans/create-pull-request@v8.1.1
