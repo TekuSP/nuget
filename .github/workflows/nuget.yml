@@ -25,6 +25,8 @@ jobs:
       - name: Generate sponsor jsons
         shell: pwsh
         run: sponsor nuget --tos --exceptions --gh-only false --oss-only true --owner "${{ github.repository_owner }}"
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}  
           
       - name: Create or update pull request
         uses: peter-evans/create-pull-request@v8.1.1
