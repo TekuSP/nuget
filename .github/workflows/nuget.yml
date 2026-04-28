@@ -32,11 +32,15 @@ jobs:
       - name: Create or update pull request
         uses: peter-evans/create-pull-request@v8.1.1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
           branch: automation/nuget-update
+          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          author: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
+          signoff: false
           delete-branch: true
+          labels: |
+            automated pr
           commit-message: Update generated NuGet data
           title: Update generated NuGet data
           body: Automated refresh of generated NuGet data.
-          add-paths: |
-            *.json
+          add-paths: *.json
