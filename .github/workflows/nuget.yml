@@ -7,16 +7,6 @@ on:
         description: Timeout in minutes
         required: false
         default: 360
-      global:
-        type: choice
-        description: Collect General Stats
-        required: true
-        default: $false
-        options: 
-        - $false
-        - $true
-      owner:
-        description: Collect Specific Owner Stats
 
   schedule:
     - cron: "0 2 1 * *"
@@ -36,28 +26,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Generate sponsor data
+      - name: Generate nuget data
         shell: pwsh
-        continue-on-error: true
         run: |
           dotnet tool update -g dotnet-sponsor
-          $owners = gc owners.json | convertfrom-json
-          if ('${{ github.event.inputs.owner }}') {
-            $owners = @('${{ github.event.inputs.owner }}')
-          }
-          foreach ($owner in $owners) {
-            sponsor nuget --tos --exceptions --oss-only false --force --owner $owner
-          }
-          # global stats for all packages
-          if (${{ github.event_name == 'workflow_dispatch' && github.event.inputs.global == '$true' }}) {
-            sponsor nuget --tos --exceptions --force
-          }
+          sponsor nuget --tos --exceptions --force
 
       - name: Detect generated changes
         id: changes
         shell: bash
         run: |
-          git add *.json
+          git add --all -- '*.json'
           if git diff --cached --quiet; then
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
           else
@@ -72,7 +51,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -C "$UPDATE_BRANCH"
-          git commit -m "Update OSS contributors stats"
+          git commit -m "Update generated NuGet data"
           git push --force --set-upstream origin "$UPDATE_BRANCH"
 
       - name: Create or update pull request
@@ -85,12 +64,12 @@ jobs:
 
           if [ -n "$pr_number" ]; then
             gh pr edit "$pr_number" \
-              --title "Update OSS contributors stats" \
-              --body "Automated update of generated NuGet sponsor statistics."
+              --title "Update generated NuGet data" \
+              --body "Automated refresh of generated NuGet data."
           else
             gh pr create \
               --base "$base_branch" \
               --head "$UPDATE_BRANCH" \
-              --title "Update OSS contributors stats" \
-              --body "Automated update of generated NuGet sponsor statistics."
+              --title "Update generated NuGet data" \
+              --body "Automated refresh of generated NuGet data."
           fi
