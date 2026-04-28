@@ -1,0 +1,34 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate JSON files
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          for file in *.json; do
+            python -m json.tool "$file" > /dev/null
+          done
+
+      - name: Validate YAML files
+        run: |
+          ruby <<'RUBY'
+          require "yaml"
+
+          Dir[".github/**/*.yml", ".github/**/*.yaml"].uniq.each do |file|
+            YAML.safe_load_file(file, permitted_classes: [], permitted_symbols: [], aliases: true)
+          end
+          RUBY

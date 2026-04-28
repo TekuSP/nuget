@@ -7,58 +7,36 @@ on:
         description: Timeout in minutes
         required: false
         default: 360
-      global:
-        type: choice
-        description: Collect General Stats
-        required: true
-        default: $false
-        options: 
-        - $false
-        - $true
-      owner:
-        description: Collect Specific Owner Stats
 
   schedule:
     - cron: "0 2 1 * *"
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   nuget:
     runs-on: ubuntu-latest
-    timeout-minutes: ${{ fromJSON(github.event.inputs.timeout || '30') }}
+    timeout-minutes: ${{ fromJSON(github.event.inputs.timeout || '360') }}
     steps:
-      - name: 🤖 defaults
-        uses: devlooped/actions-bot@v1
-        with:
-          name: ${{ secrets.BOT_NAME }}
-          email: ${{ secrets.BOT_EMAIL }}
-          gh_token: ${{ secrets.GH_TOKEN }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: 🤘 checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          token: ${{ env.GH_TOKEN }}
-          
-      - name: ⚙ sponsors
+
+      - name: Generate nuget data
         shell: pwsh
-        continue-on-error: true
         run: |
           dotnet tool update -g dotnet-sponsor
-          $owners = gc owners.json | convertfrom-json
-          if ('${{ github.event.inputs.owner }}') {
-            $owners = @('${{ github.event.inputs.owner }}')
-          }
-          foreach ($owner in $owners) {
-            sponsor nuget --tos --exceptions --oss-only false --force --owner $owner
-          }
-          # global stats for all packages
-          if (${{ github.event_name == 'workflow_dispatch' && github.event.inputs.global == '$true' }}) {
-            sponsor nuget --tos --exceptions --force
-          }
+          sponsor nuget --tos --exceptions --force
 
-      - name: ⬆️ commit
-        run: |
-          git add *.json
-          git commit -m "🖉 Update OSS contributors stats"
-          git pull
-          git push
+      - name: Create or update pull request
+        uses: peter-evans/create-pull-request@v8.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: automation/nuget-update
+          delete-branch: true
+          commit-message: Update generated NuGet data
+          title: Update generated NuGet data
+          body: Automated refresh of generated NuGet data.
+          add-paths: |
+            *.json
