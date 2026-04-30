@@ -47,19 +47,19 @@
       "TekuSP.Drivers.TCS34725": 2
     },
     "TekuSP/framework-dotnet": {
-      "FrameworkDotnet": 40
+      "FrameworkDotnet": 49
     }
   },
   "summary": {
     "authors": "2",
     "repositories": "2",
     "packages": "27",
-    "downloads": "154"
+    "downloads": "163"
   },
   "totals": {
     "authors": 2,
     "repositories": 2,
     "packages": 27,
-    "downloads": 154
+    "downloads": 163
   }
 }
