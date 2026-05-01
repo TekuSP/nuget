@@ -23,14 +23,14 @@
       "TekuSP.Drivers.CST816D": 5,
       "TekuSP.Drivers.DriverBase": 13,
       "TekuSP.Drivers.DriverBase.Interfaces.Altitude": 3,
-      "TekuSP.Drivers.DriverBase.Interfaces.CO2": 5,
+      "TekuSP.Drivers.DriverBase.Interfaces.CO2": 4,
       "TekuSP.Drivers.DriverBase.Interfaces.DewPoint": 5,
-      "TekuSP.Drivers.DriverBase.Interfaces.Gpio": 5,
+      "TekuSP.Drivers.DriverBase.Interfaces.Gpio": 4,
       "TekuSP.Drivers.DriverBase.Interfaces.Humidity": 8,
       "TekuSP.Drivers.DriverBase.Interfaces.Infrared": 3,
       "TekuSP.Drivers.DriverBase.Interfaces.Light": 5,
-      "TekuSP.Drivers.DriverBase.Interfaces.Pressure": 6,
-      "TekuSP.Drivers.DriverBase.Interfaces.Sensitivity": 5,
+      "TekuSP.Drivers.DriverBase.Interfaces.Pressure": 5,
+      "TekuSP.Drivers.DriverBase.Interfaces.Sensitivity": 4,
       "TekuSP.Drivers.DriverBase.Interfaces.Temperature": 11,
       "TekuSP.Drivers.DriverBaseI2C": 10,
       "TekuSP.Drivers.DriverBaseSPI": 3,
@@ -47,19 +47,19 @@
       "TekuSP.Drivers.TCS34725": 2
     },
     "TekuSP/framework-dotnet": {
-      "FrameworkDotnet": 49
+      "FrameworkDotnet": 36
     }
   },
   "summary": {
     "authors": "2",
     "repositories": "2",
     "packages": "27",
-    "downloads": "163"
+    "downloads": "146"
   },
   "totals": {
     "authors": 2,
     "repositories": 2,
     "packages": 27,
-    "downloads": 163
+    "downloads": 146
   }
 }
