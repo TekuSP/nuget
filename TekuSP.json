@@ -44,14 +44,14 @@
       "TekuSP.Drivers.LPS22HB": 2,
       "TekuSP.Drivers.MHZ19B": 2,
       "TekuSP.Drivers.PI4IOE5V6408": 2,
-      "TekuSP.Drivers.QMP6988": 3,
+      "TekuSP.Drivers.QMP6988": 4,
       "TekuSP.Drivers.SHT3x": 2,
       "TekuSP.Drivers.SHTC3": 2,
       "TekuSP.Drivers.SSD1331": 2,
       "TekuSP.Drivers.TCS34725": 2
     },
     "TekuSP/framework-dotnet": {
-      "FrameworkDotnet": 14
+      "FrameworkDotnet": 13
     }
   },
   "summary": {
