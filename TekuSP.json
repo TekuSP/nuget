@@ -27,7 +27,7 @@
       "TekuSP.Drivers.CST816D": 5,
       "TekuSP.Drivers.DriverBase": 12,
       "TekuSP.Drivers.DriverBase.Interfaces.Altitude": 2,
-      "TekuSP.Drivers.DriverBase.Interfaces.CO2": 4,
+      "TekuSP.Drivers.DriverBase.Interfaces.CO2": 3,
       "TekuSP.Drivers.DriverBase.Interfaces.DewPoint": 4,
       "TekuSP.Drivers.DriverBase.Interfaces.Gpio": 4,
       "TekuSP.Drivers.DriverBase.Interfaces.Humidity": 6,
@@ -58,12 +58,12 @@
     "authors": "3",
     "repositories": "2",
     "packages": "27",
-    "downloads": "107"
+    "downloads": "106"
   },
   "totals": {
     "authors": 3,
     "repositories": 2,
     "packages": 27,
-    "downloads": 107
+    "downloads": 106
   }
 }
