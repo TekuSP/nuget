@@ -43,7 +43,7 @@
       "TekuSP.Drivers.ICM20948": 2,
       "TekuSP.Drivers.LPS22HB": 2,
       "TekuSP.Drivers.MHZ19B": 2,
-      "TekuSP.Drivers.PI4IOE5V6408": 2,
+      "TekuSP.Drivers.PI4IOE5V6408": 1,
       "TekuSP.Drivers.QMP6988": 3,
       "TekuSP.Drivers.SHT3x": 2,
       "TekuSP.Drivers.SHTC3": 2,
@@ -58,12 +58,12 @@
     "authors": "3",
     "repositories": "2",
     "packages": "27",
-    "downloads": "104"
+    "downloads": "103"
   },
   "totals": {
     "authors": 3,
     "repositories": 2,
     "packages": 27,
-    "downloads": 104
+    "downloads": 103
   }
 }
