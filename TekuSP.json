@@ -25,7 +25,7 @@
     "TekuSP/Nanoframework-Drivers": {
       "TekuSP.Drivers.ADS1015": 2,
       "TekuSP.Drivers.CST816D": 5,
-      "TekuSP.Drivers.DriverBase": 12,
+      "TekuSP.Drivers.DriverBase": 11,
       "TekuSP.Drivers.DriverBase.Interfaces.Altitude": 2,
       "TekuSP.Drivers.DriverBase.Interfaces.CO2": 3,
       "TekuSP.Drivers.DriverBase.Interfaces.DewPoint": 3,
@@ -58,12 +58,12 @@
     "authors": "3",
     "repositories": "2",
     "packages": "27",
-    "downloads": "99"
+    "downloads": "98"
   },
   "totals": {
     "authors": 3,
     "repositories": 2,
     "packages": 27,
-    "downloads": 99
+    "downloads": 98
   }
 }
