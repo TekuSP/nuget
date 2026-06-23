@@ -20,7 +20,7 @@ jobs:
     name: Create sponsor JSONs
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         
       - name: Install dotnet-sponsor tool
         run: dotnet tool update -g dotnet-sponsor
