@@ -33,9 +33,9 @@
       "TekuSP.Drivers.DriverBase.Interfaces.DewPoint": 4,
       "TekuSP.Drivers.DriverBase.Interfaces.Gpio": 6,
       "TekuSP.Drivers.DriverBase.Interfaces.Humidity": 8,
-      "TekuSP.Drivers.DriverBase.Interfaces.Infrared": 3,
+      "TekuSP.Drivers.DriverBase.Interfaces.Infrared": 4,
       "TekuSP.Drivers.DriverBase.Interfaces.Light": 4,
-      "TekuSP.Drivers.DriverBase.Interfaces.Pressure": 6,
+      "TekuSP.Drivers.DriverBase.Interfaces.Pressure": 5,
       "TekuSP.Drivers.DriverBase.Interfaces.Sensitivity": 4,
       "TekuSP.Drivers.DriverBase.Interfaces.Temperature": 10,
       "TekuSP.Drivers.DriverBaseI2C": 9,
@@ -53,19 +53,19 @@
       "TekuSP.Drivers.TCS34725": 2
     },
     "TekuSP/framework-dotnet": {
-      "FrameworkDotnet": 8
+      "FrameworkDotnet": 9
     }
   },
   "summary": {
     "authors": "3",
     "repositories": "2",
     "packages": "27",
-    "downloads": "117"
+    "downloads": "118"
   },
   "totals": {
     "authors": 3,
     "repositories": 2,
     "packages": 27,
-    "downloads": 117
+    "downloads": 118
   }
 }
