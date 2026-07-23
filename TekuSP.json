@@ -32,12 +32,12 @@
       "TekuSP.Drivers.DriverBase.Interfaces.CO2": 4,
       "TekuSP.Drivers.DriverBase.Interfaces.DewPoint": 4,
       "TekuSP.Drivers.DriverBase.Interfaces.Gpio": 6,
-      "TekuSP.Drivers.DriverBase.Interfaces.Humidity": 6,
+      "TekuSP.Drivers.DriverBase.Interfaces.Humidity": 7,
       "TekuSP.Drivers.DriverBase.Interfaces.Infrared": 3,
       "TekuSP.Drivers.DriverBase.Interfaces.Light": 4,
       "TekuSP.Drivers.DriverBase.Interfaces.Pressure": 5,
       "TekuSP.Drivers.DriverBase.Interfaces.Sensitivity": 4,
-      "TekuSP.Drivers.DriverBase.Interfaces.Temperature": 8,
+      "TekuSP.Drivers.DriverBase.Interfaces.Temperature": 9,
       "TekuSP.Drivers.DriverBaseI2C": 9,
       "TekuSP.Drivers.DriverBaseSPI": 3,
       "TekuSP.Drivers.DriverBaseUART": 3,
@@ -47,7 +47,7 @@
       "TekuSP.Drivers.MHZ19B": 2,
       "TekuSP.Drivers.PI4IOE5V6408": 2,
       "TekuSP.Drivers.QMP6988": 3,
-      "TekuSP.Drivers.SHT3x": 2,
+      "TekuSP.Drivers.SHT3x": 3,
       "TekuSP.Drivers.SHTC3": 2,
       "TekuSP.Drivers.SSD1331": 2,
       "TekuSP.Drivers.TCS34725": 2
@@ -60,12 +60,12 @@
     "authors": "3",
     "repositories": "2",
     "packages": "27",
-    "downloads": "111"
+    "downloads": "114"
   },
   "totals": {
     "authors": 3,
     "repositories": 2,
     "packages": 27,
-    "downloads": 111
+    "downloads": 114
   }
 }
