@@ -40,7 +40,7 @@
       "TekuSP.Drivers.DriverBase.Interfaces.Temperature": 8,
       "TekuSP.Drivers.DriverBaseI2C": 9,
       "TekuSP.Drivers.DriverBaseSPI": 2,
-      "TekuSP.Drivers.DriverBaseUART": 3,
+      "TekuSP.Drivers.DriverBaseUART": 2,
       "TekuSP.Drivers.HDC1080": 2,
       "TekuSP.Drivers.ICM20948": 2,
       "TekuSP.Drivers.LPS22HB": 2,
@@ -60,12 +60,12 @@
     "authors": "3",
     "repositories": "2",
     "packages": "27",
-    "downloads": "103"
+    "downloads": "102"
   },
   "totals": {
     "authors": 3,
     "repositories": 2,
     "packages": 27,
-    "downloads": 103
+    "downloads": 102
   }
 }
