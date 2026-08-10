@@ -37,7 +37,7 @@
       "TekuSP.Drivers.DriverBase.Interfaces.Light": 3,
       "TekuSP.Drivers.DriverBase.Interfaces.Pressure": 4,
       "TekuSP.Drivers.DriverBase.Interfaces.Sensitivity": 3,
-      "TekuSP.Drivers.DriverBase.Interfaces.Temperature": 7,
+      "TekuSP.Drivers.DriverBase.Interfaces.Temperature": 8,
       "TekuSP.Drivers.DriverBaseI2C": 9,
       "TekuSP.Drivers.DriverBaseSPI": 2,
       "TekuSP.Drivers.DriverBaseUART": 2,
@@ -60,12 +60,12 @@
     "authors": "3",
     "repositories": "2",
     "packages": "27",
-    "downloads": "100"
+    "downloads": "101"
   },
   "totals": {
     "authors": 3,
     "repositories": 2,
     "packages": 27,
-    "downloads": 100
+    "downloads": 101
   }
 }
