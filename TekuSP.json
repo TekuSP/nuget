@@ -32,7 +32,7 @@
       "TekuSP.Drivers.DriverBase.Interfaces.CO2": 3,
       "TekuSP.Drivers.DriverBase.Interfaces.DewPoint": 3,
       "TekuSP.Drivers.DriverBase.Interfaces.Gpio": 5,
-      "TekuSP.Drivers.DriverBase.Interfaces.Humidity": 5,
+      "TekuSP.Drivers.DriverBase.Interfaces.Humidity": 6,
       "TekuSP.Drivers.DriverBase.Interfaces.Infrared": 2,
       "TekuSP.Drivers.DriverBase.Interfaces.Light": 3,
       "TekuSP.Drivers.DriverBase.Interfaces.Pressure": 4,
@@ -60,12 +60,12 @@
     "authors": "3",
     "repositories": "2",
     "packages": "27",
-    "downloads": "99"
+    "downloads": "100"
   },
   "totals": {
     "authors": 3,
     "repositories": 2,
     "packages": 27,
-    "downloads": 99
+    "downloads": 100
   }
 }
