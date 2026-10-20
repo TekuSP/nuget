@@ -27,20 +27,20 @@
     "TekuSP/Nanoframework-Drivers": {
       "TekuSP.Drivers.ADS1015": 2,
       "TekuSP.Drivers.CST816D": 5,
-      "TekuSP.Drivers.DriverBase": 12,
-      "TekuSP.Drivers.DriverBase.Interfaces.Altitude": 3,
-      "TekuSP.Drivers.DriverBase.Interfaces.CO2": 3,
-      "TekuSP.Drivers.DriverBase.Interfaces.DewPoint": 3,
+      "TekuSP.Drivers.DriverBase": 9,
+      "TekuSP.Drivers.DriverBase.Interfaces.Altitude": 2,
+      "TekuSP.Drivers.DriverBase.Interfaces.CO2": 1,
+      "TekuSP.Drivers.DriverBase.Interfaces.DewPoint": 1,
       "TekuSP.Drivers.DriverBase.Interfaces.Gpio": 5,
-      "TekuSP.Drivers.DriverBase.Interfaces.Humidity": 5,
-      "TekuSP.Drivers.DriverBase.Interfaces.Infrared": 2,
-      "TekuSP.Drivers.DriverBase.Interfaces.Light": 3,
-      "TekuSP.Drivers.DriverBase.Interfaces.Pressure": 4,
-      "TekuSP.Drivers.DriverBase.Interfaces.Sensitivity": 3,
-      "TekuSP.Drivers.DriverBase.Interfaces.Temperature": 7,
-      "TekuSP.Drivers.DriverBaseI2C": 9,
-      "TekuSP.Drivers.DriverBaseSPI": 2,
-      "TekuSP.Drivers.DriverBaseUART": 2,
+      "TekuSP.Drivers.DriverBase.Interfaces.Humidity": 2,
+      "TekuSP.Drivers.DriverBase.Interfaces.Infrared": 1,
+      "TekuSP.Drivers.DriverBase.Interfaces.Light": 1,
+      "TekuSP.Drivers.DriverBase.Interfaces.Pressure": 1,
+      "TekuSP.Drivers.DriverBase.Interfaces.Sensitivity": 1,
+      "TekuSP.Drivers.DriverBase.Interfaces.Temperature": 3,
+      "TekuSP.Drivers.DriverBaseI2C": 8,
+      "TekuSP.Drivers.DriverBaseSPI": 1,
+      "TekuSP.Drivers.DriverBaseUART": 1,
       "TekuSP.Drivers.HDC1080": 2,
       "TekuSP.Drivers.ICM20948": 2,
       "TekuSP.Drivers.LPS22HB": 2,
@@ -48,7 +48,7 @@
       "TekuSP.Drivers.PI4IOE5V6408": 2,
       "TekuSP.Drivers.QMP6988": 3,
       "TekuSP.Drivers.SHT3x": 2,
-      "TekuSP.Drivers.SHTC3": 2,
+      "TekuSP.Drivers.SHTC3": 1,
       "TekuSP.Drivers.SSD1331": 2,
       "TekuSP.Drivers.TCS34725": 2
     },
@@ -60,12 +60,12 @@
     "authors": "3",
     "repositories": "2",
     "packages": "27",
-    "downloads": "102"
+    "downloads": "75"
   },
   "totals": {
     "authors": 3,
     "repositories": 2,
     "packages": 27,
-    "downloads": 102
+    "downloads": 75
   }
 }
