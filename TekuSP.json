@@ -36,7 +36,7 @@
       "TekuSP.Drivers.DriverBase.Interfaces.Infrared": 0,
       "TekuSP.Drivers.DriverBase.Interfaces.Light": 0,
       "TekuSP.Drivers.DriverBase.Interfaces.Pressure": 1,
-      "TekuSP.Drivers.DriverBase.Interfaces.Sensitivity": 1,
+      "TekuSP.Drivers.DriverBase.Interfaces.Sensitivity": 0,
       "TekuSP.Drivers.DriverBase.Interfaces.Temperature": 1,
       "TekuSP.Drivers.DriverBaseI2C": 5,
       "TekuSP.Drivers.DriverBaseSPI": 1,
@@ -53,7 +53,7 @@
       "TekuSP.Drivers.TCS34725": 2
     },
     "TekuSP/framework-dotnet": {
-      "FrameworkDotnet": 10
+      "FrameworkDotnet": 11
     }
   },
   "summary": {
