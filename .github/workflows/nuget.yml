@@ -30,7 +30,7 @@ jobs:
         run: sponsor nuget --tos --exceptions --oss-only false --gh-only false --force --owner "${{ github.repository_owner }}" 
           
       - name: Create or update pull request
-        uses: peter-evans/create-pull-request@v8.1.1
+        uses: peter-evans/create-pull-request@v8.1.2
         with:
           token: ${{ secrets.GH_PAT }}
           branch: automation/nuget-update
